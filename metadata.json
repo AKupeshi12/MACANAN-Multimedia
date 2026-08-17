@@ -1,0 +1,6 @@
+{
+  "name": "MACANAN - Selected Works & Studio",
+  "description": "Premier photography and cinematic videography studio based in Mzuzu, Malawi. Featuring instant-load high-fidelity portfolio, 1-click booking pipeline, and automated rate card and creative brief downloads.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

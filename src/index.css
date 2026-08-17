@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-hanken: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-geist: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  body {
+    font-family: var(--font-inter);
+    background-color: #121317;
+    color: #e3e2e7;
+  }
+  
+  h1, h2, h3, .font-display {
+    font-family: var(--font-hanken);
+  }
+
+  .font-caps {
+    font-family: var(--font-geist);
+  }
+}
+
+/* Custom Utilities for Macanan luxury aesthetic */
+.font-display-lg {
+  font-family: var(--font-hanken);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.font-headline {
+  font-family: var(--font-hanken);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.font-label-caps {
+  font-family: var(--font-geist);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.glass-panel {
+  background: rgba(26, 27, 31, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hairline-border {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hairline-border-subtle {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.image-overlay {
+  background: linear-gradient(to top, rgba(18, 19, 23, 0.95) 0%, rgba(18, 19, 23, 0.4) 50%, rgba(18, 19, 23, 0.1) 100%);
+}
+
+.masonry-grid {
+  column-count: 1;
+  column-gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 24px;
+}
+
+/* Continuous Motion Infinite Marquee Animations */
+@keyframes continuous-scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes continuous-scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-continuous-left {
+  display: flex;
+  width: max-content;
+  animation: continuous-scroll-left 38s linear infinite;
+}
+
+.animate-continuous-left:hover,
+.animate-continuous-right:hover {
+  animation-play-state: paused;
+}
+
+.animate-continuous-right {
+  display: flex;
+  width: max-content;
+  animation: continuous-scroll-right 34s linear infinite;
+}
+
+/* Kinetic Flash Word & Shutter Strobe Effects */
+@keyframes flash-strobe {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+    filter: blur(6px) brightness(2);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(0) scale(1.02);
+    filter: blur(0px) brightness(1.6);
+  }
+  25% {
+    transform: translateY(0) scale(1);
+    filter: brightness(1);
+  }
+  85% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: brightness(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.96);
+    filter: blur(4px) brightness(0.6);
+  }
+}
+
+.animate-word-flash {
+  animation: flash-strobe 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes flash-border-pulse {
+  0%, 100% {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0px rgba(255, 255, 255, 0);
+  }
+  50% {
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.25), inset 0 0 15px rgba(255, 255, 255, 0.1);
+  }
+}
+
+.animate-flash-box {
+  animation: flash-border-pulse 3s ease-in-out infinite;
+}
+
+@keyframes flash-glow-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #9ca3af 0%, #ffffff 35%, #ffffff 65%, #9ca3af 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: flash-glow-sweep 3.5s linear infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121317;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
